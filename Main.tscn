@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://graphics/race_track_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Marker.gd" type="Script" id=5]
-[ext_resource path="res://graphics/Cars/car_yellow_small_4.png" type="Texture" id=6]
+[ext_resource path="res://Car.gd" type="Script" id=6]
+[ext_resource path="res://graphics/Cars/car_yellow_small_4.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,7 +22,7 @@ extents = Vector2( 101.3, 27.7543 )
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 312.551, 127.367, 0, 0, 0, 0, 314.32, -133.772, 0, 0, 0, 0, 343.857, -304.178, 0, 0, 0, 0, 609.69, -349.619, 0, 0, 0, 0, 836.897, -347.347, 0, 0, 0, 0, 1198.16, -349.619, 0, 0, 0, 0, 1368.56, -349.619, 0, 0, 0, 0, 1638.94, -335.987, 0, 0, 0, 0, 1825.25, -229.199, 0, 0, 0, 0, 1841.15, -79.2425, 0, 0, 0, 0, 1838.88, 61.626, 0, 0, 0, 0, 1850.24, 238.848, 0, 0, 0, 0, 1838.88, 379.716, 0, 0, 0, 0, 1768.45, 511.497, 0, 0, 0, 0, 1613.95, 543.305, 0, 0, 0, 0, 1375.38, 543.305, 0, 0, 0, 0, 1166.35, 520.585, 0, 0, 0, 0, 991.398, 527.401, 0, 0, 0, 0, 870.978, 536.489, 0, 0, 0, 0, 716.477, 525.129, 0, 0, 0, 0, 541.527, 493.32, 0, 0, 0, 0, 330.225, 443.334, 0, 0, 0, 0, 313.98, 156.127, 0, 0, 0, 0, 312.551, 127.367 )
+"points": PoolVector2Array( 0, 0, 0, 0, 313.82, 131.164, 0, 0, 0, 0, 314.32, -133.772, 0, 0, 0, 0, 343.857, -304.178, 0, 0, 0, 0, 609.69, -349.619, 0, 0, 0, 0, 836.897, -347.347, 0, 0, 0, 0, 1198.16, -349.619, 0, 0, 0, 0, 1368.56, -349.619, 0, 0, 0, 0, 1638.94, -335.987, 0, 0, 0, 0, 1825.25, -229.199, 0, 0, 0, 0, 1841.15, -79.2425, 0, 0, 0, 0, 1838.88, 61.626, 0, 0, 0, 0, 1850.24, 238.848, 0, 0, 0, 0, 1838.88, 379.716, 0, 0, 0, 0, 1768.45, 511.497, 0, 0, 0, 0, 1613.95, 543.305, 0, 0, 0, 0, 1375.38, 543.305, 0, 0, 0, 0, 1166.35, 520.585, 0, 0, 0, 0, 991.398, 527.401, 0, 0, 0, 0, 870.978, 536.489, 0, 0, 0, 0, 716.477, 525.129, 0, 0, 0, 0, 541.527, 493.32, 0, 0, 0, 0, 330.225, 443.334, 0, 0, 0, 0, 317.144, 251.94, 0, 0, 0, 0, 315.443, 174.466, 0, 0, 0, 0, 315.443, 132.723 )
 }
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -31,7 +32,7 @@ extents = Vector2( 17.3616, 33.8444 )
 
 [sub_resource type="Animation" id=5]
 
-length = 30.0
+length = 20.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -40,7 +41,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 30 ),
+"times": PoolRealArray( 0, 20 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -166,9 +167,9 @@ __meta__ = {
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CarPath"]
 
-position = Vector2( 312.551, 127.367 )
-rotation = 0.00677199
-offset = 0.0
+position = Vector2( 313.82, 131.164 )
+rotation = 0.00187744
+offset = 4352.73
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -176,33 +177,23 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Car1" type="RigidBody2D" parent="CarPath/PathFollow2D"]
+[node name="Car1" type="StaticBody2D" parent="CarPath/PathFollow2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-mode = 0
-mass = 1.0
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="car_yellow_small_4" type="Sprite" parent="CarPath/PathFollow2D/Car1"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarPath/PathFollow2D/Car1"]
 
@@ -234,5 +225,7 @@ autoplay = "caranimation"
 [connection signal="area_entered" from="Marker2" to="Marker2" method="_on_Marker_area_entered"]
 
 [connection signal="area_entered" from="Marker3" to="Marker3" method="_on_Marker_area_entered"]
+
+[connection signal="animation_finished" from="CarPath/PathFollow2D/AnimationPlayer" to="CarPath/PathFollow2D/Car1" method="_on_AnimationPlayer_animation_finished"]
 
 

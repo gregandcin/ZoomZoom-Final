@@ -14,10 +14,13 @@ func _ready():
 	
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
+	if $"Camera2D/gameOver".visible == true or $"Camera2D/you_win".visible == true:
+		if Input.is_action_just_pressed("restart"):
+			get_tree().change_scene("res://Main.tscn")
+	pass
 
 func _physics_process(delta):
 	if Input.is_action_pressed("player_acceleration"):

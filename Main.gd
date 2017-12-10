@@ -21,5 +21,6 @@ func _process(delta):
 		elif levelCount == 2:
 			get_tree().change_scene("res://Level3.tscn")
 		elif levelCount == 3:
+			$"Player/Camera2D/you_win".visible = true
 			print("Win")
 	pass

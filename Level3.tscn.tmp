@@ -157,7 +157,6 @@ position = Vector2( 95.2976, 557.256 )
 
 [node name="Car1Path" type="Path2D" parent="."]
 
-editor/display_folded = true
 curve = SubResource( 1 )
 
 [node name="Path2D" type="PathFollow2D" parent="Car1Path"]
@@ -219,7 +218,6 @@ autoplay = "car1anim"
 
 [node name="Car2Path" type="Path2D" parent="."]
 
-editor/display_folded = true
 curve = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Car2Path"]
@@ -237,7 +235,6 @@ lookahead = 4.0
 [node name="Car2" type="StaticBody2D" parent="Car2Path/PathFollow2D"]
 
 editor/display_folded = true
-rotation = 3.14159
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -282,7 +279,6 @@ autoplay = "car2anim"
 
 [node name="Car3Path" type="Path2D" parent="."]
 
-editor/display_folded = true
 position = Vector2( 246.707, 563.627 )
 curve = SubResource( 6 )
 
@@ -300,7 +296,6 @@ lookahead = 4.0
 
 [node name="Car3" type="StaticBody2D" parent="Car3Path/PathFollow2D"]
 
-rotation = 3.14159
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -308,6 +303,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }

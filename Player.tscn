@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://graphics/Cars/car_blue_small_1.png" type="Texture" id=2]
 [ext_resource path="res://graphics/gameOver.png" type="Texture" id=3]
+[ext_resource path="res://graphics/you_win.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -97,7 +98,12 @@ _sections_unfolded = [ "Transform" ]
 [node name="gameOver" type="Sprite" parent="Camera2D"]
 
 visible = false
-position = Vector2( -8.24826, -0.042511 )
 texture = ExtResource( 3 )
+
+[node name="you_win" type="Sprite" parent="Camera2D"]
+
+visible = false
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 
